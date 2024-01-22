@@ -1,43 +1,29 @@
-function solveProblem(setOne, setTwo) {
-    let sum = 0;
-   
 
-    for (let i = 0; i < setOne.length; i++) {
-       let found = false;
-   
-       for (let j = 0; j < setTwo.length; j++) {
-         if (setOne[i] === setTwo[j]) {
-           found = true;
-           break;
-         }
-       }
-   
-       if (!found) {
-         sum += setOne[i];
-       }
-    }
-   
+var 
+ set1, set2: array[1..100] of integer;
+ i, j, k, count: integer;
 
-    for (let i = 0; i < setTwo.length; i++) {
-       let found = false;
-   
-       for (let j = 0; j < setOne.length; j++) {
-         if (setTwo[i] === setOne[j]) {
-           found = true;
-           break;
-         }
-       }
-   
-       if (!found) {
-         sum += setTwo[i];
-       }
-    }
-   
-    return sum;
-   }
-   
-   
-   let setOne = [1, 2, 3, 4, 5];
-   let setTwo = [4, 5, 6, 7, 8];
-   
-   console.log(solveProblem(setOne, setTwo)); 
+begin
+ read(count); 
+ for i := 1 to count do
+    read(set1[i]);
+  
+ read(count); 
+ for i := 1 to count do
+    read(set2[i]);
+
+ k := 0;
+ for i := 1 to count do
+ begin
+    for j := 1 to count do
+    begin
+      if set1[i] = set2[j] then
+      begin
+        k := k + 1;
+        break;
+      end;
+    end;
+ end;
+
+ write('Sum of all distinct elements from the set: ', k);
+end.
