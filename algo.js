@@ -1,21 +1,35 @@
-ALGORITHM simpleSort
- VAR vector: ARRAY_OF INTEGER=[3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5] i, j: INTEGER
-
-PROCEDURE swap(vector, i, j)
- VAR temp: INTEGER
-  BEGIN 
-  temp = vector[i]
-   vector[i] = vector[j]
-    vector[j] = temp 
-  END
-
-PROCEDURE simpleSort(vector) VAR n: INTEGER BEGIN n = length(vector)
-
-FOR i FROM 0 TO n - 1 DO
- FOR j FROM 0 TO n - i - 1 DO 
- IF vector[j] > vector[j + 1] THEN
-  swap(vector, j, j + 1) 
-  END_IF
-   END_FOR
+ALGORITHM table_comparison
+VAR
+    
+    a:array_name : ARRAY_OF INTEGER[3,1,7,9];
+    b:array_name : ARRAY_OF INTEGER[2,4,1,9,3];
+    i,j,som:INTEGER;
+    test:BOOLEAN;
+BEGIN
+    som:=0;
+    FOR i FROM 0 TO long(a) STEP 1  DO
+        test:=false;
+        FOR j FROM 0 TO long(b) STEP 1  DO
+            IF (a[i]=b[j]) THEN
+                test:=true;
+            END_IF
+        END_FOR
+        IF (test:=false) THEN
+            som:=som+a[i];
+        END_IF
     END_FOR
-     END
+
+
+    FOR j FROM 0 TO long(b) STEP 1  DO
+        test:=false;
+        FOR i FROM 0 TO longa STEP 1  DO
+            IF (a[i]=b[j]) THEN
+                test:=true;
+            END_IF
+        END_FOR
+        IF (test:=false) THEN
+            som:=som+b[j];
+        END_IF
+    END_FOR
+    write(som)
+END.
