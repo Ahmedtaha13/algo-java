@@ -1,29 +1,21 @@
+ALGORITHM simpleSort
+ VAR vector: ARRAY_OF INTEGER=[3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5] i, j: INTEGER
 
-var 
- set1, set2: array[1..100] of integer;
- i, j, k, count: integer;
+PROCEDURE swap(vector, i, j)
+ VAR temp: INTEGER
+  BEGIN 
+  temp = vector[i]
+   vector[i] = vector[j]
+    vector[j] = temp 
+  END
 
-begin
- read(count); 
- for i := 1 to count do
-    read(set1[i]);
-  
- read(count); 
- for i := 1 to count do
-    read(set2[i]);
+PROCEDURE simpleSort(vector) VAR n: INTEGER BEGIN n = length(vector)
 
- k := 0;
- for i := 1 to count do
- begin
-    for j := 1 to count do
-    begin
-      if set1[i] = set2[j] then
-      begin
-        k := k + 1;
-        break;
-      end;
-    end;
- end;
-
- write('Sum of all distinct elements from the set: ', k);
-end.
+FOR i FROM 0 TO n - 1 DO
+ FOR j FROM 0 TO n - i - 1 DO 
+ IF vector[j] > vector[j + 1] THEN
+  swap(vector, j, j + 1) 
+  END_IF
+   END_FOR
+    END_FOR
+     END
